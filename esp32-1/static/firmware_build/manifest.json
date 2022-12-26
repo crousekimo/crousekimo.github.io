@@ -1,0 +1,15 @@
+{
+  "name": "bDesigner for micropython",
+  "version": "t10.1",
+  "home_assistant_domain": "bDesigner",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "esp32.bin", "offset": 4096 }]
+    },
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "esp8266.bin", "offset": 0 }]
+    }
+  ]
+}
