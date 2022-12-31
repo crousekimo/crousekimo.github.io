@@ -1,16 +1,16 @@
 {
-  "name": "ESPHome",
-  "version": "2022.3.0",
-  "home_assistant_domain": "esphome",
-  "funding_url": "https://esphome.io/guides/supporters.html",
+  "name": "bDesigner MakeCode ESP32 Firmata",
+  "version": "0.2",
+  "home_assistant_domain": "bDesigner",
   "builds": [
     {
       "chipFamily": "ESP32",
-      "parts": [{ "path": "esp32.bin", "offset": 0 }]
-    },
-    {
-      "chipFamily": "ESP8266",
-      "parts": [{ "path": "esp8266.bin", "offset": 0 }]
+      "parts": [
+        { "path": "boot_app0.bin", "offset": 57344 },
+        { "path": "bootloader_dout_40m.bin", "offset": 4096},
+        { "path": "esp32.bin", "offset": 65536 },
+        { "path": "partitions.bin", "offset": 32768 }
+      ]
     }
   ]
 }
