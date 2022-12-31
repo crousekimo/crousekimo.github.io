@@ -1,6 +1,6 @@
 {
   "name": "bDesigner MakeCode ESP32 Firmata",
-  "version": "t10.1",
+  "version": "t10.2",
   "home_assistant_domain": "bDesigner",
   "builds": [
     {
