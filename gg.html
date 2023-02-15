@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<meta charset="UTF-8"/>
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="header">
+    <h1>Slider Control</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form method="get">
+      <label>網址</label>
+      <input type=text name="website" id="website" value=192.168.0.101>
+      <label for="points">指令:</label>
+      <select name="YourLocation" id="YourLocation" required>
+  　    <option value="pinMode">pinMode</option>
+  　    <option value="digitalWrite">digitalWrite</option>
+  　    <option value="digitalRead">digitalRead</option>
+  　    <option value="analogWrite">analogWrite</option>
+  　    <option value="analogRead">analogRead</option>
+      </select>
+      <lavel>腳位</label>
+      
+      <input type="range" name="points" id="points" value="50" min="0" max="100" required>
+      <label>輸出</label>
+      <input type="range" name="points1" id="points1" value="20" min="0" max="1023" required>      
+      <input type="submit" data-inline="true" value="Submit">
+    </form>
+    <iframe id="iframe"></iframe>
+  </div>
+  <style type="text/css">
+    #iframe {
+      width:100%;
+      height: 300px;
+    }
+  </style>
+  <script type="text/javascript">
+    $(function() { // document ready 
+      $('.ui-content form').submit(function(event) {
+        event.preventDefault(); //不送出表單
+        var website = $.mobile.activePage.find("#website").val();
+        var text = $.mobile.activePage.find("#YourLocation option:selected").text();
+        var points = $.mobile.activePage.find("#points").val();
+        var points1 = $.mobile.activePage.find("#points1").val();
+        var newUrl = 'http://' + website + '/' + text + '=' + points + ',' + points1;
+        // location.href = newUrl;
+        $("#iframe").attr('src', newUrl);
+        return false;
+      });
+    });
+  </script>
+</div>
+
+</body>
+</html>
